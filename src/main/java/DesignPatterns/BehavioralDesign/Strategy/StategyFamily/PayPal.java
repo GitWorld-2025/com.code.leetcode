@@ -1,6 +1,6 @@
 package DesignPatterns.BehavioralDesign.Strategy.StategyFamily;
 
-public class PayPal implements AbstractStrategy{
+public class PayPal implements AbstractStrategy {
     private String userName;
 
     public PayPal(String userName) {

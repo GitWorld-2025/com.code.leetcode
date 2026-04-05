@@ -1,6 +1,6 @@
 package DesignPatterns.BehavioralDesign.Strategy.StategyFamily;
 
-public class CryptoPayment  implements AbstractStrategy{
+public class CryptoPayment  implements AbstractStrategy {
     private int cryptos;
 
     public CryptoPayment(int cryptos) {

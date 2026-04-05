@@ -2,7 +2,7 @@ package DesignPatterns.BehavioralDesign.Template.Processor;
 
 import DesignPatterns.BehavioralDesign.Template.Order;
 
-public class PrimeOrderProcessor extends AbstractOrderProcessor{
+public class PrimeOrderProcessor extends AbstractOrderProcessor {
     @Override
     protected void validateOrder(Order order) {
         System.out.println("Prime Order validate order : " + order.getId());
