@@ -1,6 +1,9 @@
-package DesignPatterns.BehavioralDesign.Strategy.StategyFamily;
+package DesignPatterns.BehavioralDesign.Strategy;
 
-import DesignPatterns.BehavioralDesign.Strategy.PaymentService;
+import DesignPatterns.BehavioralDesign.Strategy.StategyFamily.AbstractStrategy;
+import DesignPatterns.BehavioralDesign.Strategy.StategyFamily.CreditCardStrategy;
+import DesignPatterns.BehavioralDesign.Strategy.StategyFamily.CryptoPayment;
+import DesignPatterns.BehavioralDesign.Strategy.StategyFamily.PayPal;
 
 public class Client {
     public static void main(String... args){

@@ -69,11 +69,11 @@
   </component>
   <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DesignPatterns.BehavioralDesign.Strategy.StategyFamily.Client" />
+      <option name="MAIN_CLASS_NAME" value="DesignPatterns.BehavioralDesign.Strategy.Client" />
       <module name="DSLeetCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DesignPatterns.BehavioralDesign.Strategy.StategyFamily.*" />
+          <option name="PATTERN" value="DesignPatterns.BehavioralDesign.Strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
