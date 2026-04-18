@@ -3,11 +3,12 @@ package com.TopicSolutions;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ArraysAndHashing {
     public static void main(String... args) {
         //ContainsDuplicate();
-        ValidAnagram();
+        //ValidAnagram();
         //TwoSum();
         //GroupAnagrams();
         //TopKFrequentElements();
@@ -20,7 +21,38 @@ public class ArraysAndHashing {
         //FirstMissingPositive();
         //uglyNumber();
         //permutationStringusingHashMap();
+        //AddtoArrayFormofInteger();
+        RemoveOutermostParentheses();
     }
+
+    static void RemoveOutermostParentheses() {
+        String s = "(()())(())";
+        StringBuilder sb = new StringBuilder();
+        int open = 0;
+        for(char c : s.toCharArray()){
+            if(c == '(' && open++ > 0) sb.append(c);
+            if(c == ')' && open-- > 1) sb.append(c);
+        }
+        System.out.println(sb);
+    }
+
+    static void AddtoArrayFormofInteger() {
+        int[] num = {2, 1, 5};
+        int k = 806;
+        List<Integer> result = new ArrayList<>();
+        int i = num.length - 1;
+
+        while (i >= 0 || k > 0) {
+            int sum = (i >= 0 ? num[i] : 0) + k;
+            result.add(sum % 10);
+            k = sum / 10;
+            i--;
+        }
+        //result.reversed();
+        Collections.reverse(result);
+        result.forEach(System.out::println);
+    }
+
     static boolean permutationStringusingHashMap() {
         String s1 = "adc";
         String s2 = "dcda";
@@ -52,6 +84,7 @@ public class ArraysAndHashing {
         }
         return false;
     }
+
     static void uglyNumber() {
         int n = 5;
         int[] factors = {2, 3, 5};
@@ -322,17 +355,17 @@ public class ArraysAndHashing {
         //System.out.println(equals);
 
         /// using Array
-        int[] checked = new int['z'+1];
+        int[] checked = new int['z' + 1];
         for (int i = 0; i < s.length(); i++) {
-            if(checked[s.charAt(i)]==0){
+            if (checked[s.charAt(i)] == 0) {
                 checked[s.charAt(i)]++;
-            }else checked[s.charAt(i)]--;
-            if(checked[t.charAt(i)]==0){
+            } else checked[s.charAt(i)]--;
+            if (checked[t.charAt(i)] == 0) {
                 checked[t.charAt(i)]++;
-            }else checked[t.charAt(i)]--;
+            } else checked[t.charAt(i)]--;
         }
         boolean flag = true;
-        for(int num : checked)if(num != 0) flag = false;
+        for (int num : checked) if (num != 0) flag = false;
         System.out.println("Valid Anagram : " + flag);
 
     }

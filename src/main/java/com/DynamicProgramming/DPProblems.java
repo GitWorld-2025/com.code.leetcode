@@ -41,7 +41,6 @@ public class DPProblems {
         int[] memo = new int[stairs + 1];
         Arrays.fill(memo, -1);
         System.out.println(findClimbStairsMemoisation(memo, stairs));
-        ;
 
         System.out.println(findClimbStairsTabulation(stairs));
     }

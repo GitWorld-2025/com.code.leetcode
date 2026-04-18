@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d7f1b4b-70dd-4c10-bd6b-510d44c5f922" name="Changes" comment="JDK Change">
+    <list default="true" id="1d7f1b4b-70dd-4c10-bd6b-510d44c5f922" name="Changes" comment="Design Pattern : Adaptor, Decorator, Facade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicProgramming/DPProblems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicProgramming/DPProblems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/ArraysAndHashing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/ArraysAndHashing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -27,21 +30,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "GitWorld-2025"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GitWorld-2025&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/GitWorld-2025/com.code.leetcode.git",
-    "accountId": "5a85d337-7deb-4b49-b01f-47896163ce15"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/GitWorld-2025/com.code.leetcode.git&quot;,
+    &quot;accountId&quot;: &quot;5a85d337-7deb-4b49-b01f-47896163ce15&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3BvXn1txmGI4JK7m85RadAuOqcG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,10 +52,18 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ArraysAndHashing.executor": "Run",
+    "Application.BackTrackingProblems.executor": "Run",
+    "Application.Client.executor": "Run",
+    "Application.DocumentApp.executor": "Run",
+    "Application.LinkedListProblems.executor": "Run",
     "Application.OrderClient.executor": "Run",
+    "Application.SmartHomeApp.executor": "Run",
+    "Maven.DSLeetCode [clean].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/nitin/Downloads/Study/GitRepo/com.code.leetcode",
@@ -67,13 +78,13 @@
       <recent name="C:\Users\nitin\Downloads\Study\GitRepo\com.code.leetcode" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DesignPatterns.BehavioralDesign.Strategy.Client" />
+  <component name="RunManager" selected="Application.LinkedListProblems">
+    <configuration name="ArraysAndHashing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TopicSolutions.ArraysAndHashing" />
       <module name="DSLeetCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DesignPatterns.BehavioralDesign.Strategy.*" />
+          <option name="PATTERN" value="com.TopicSolutions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,12 +92,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OrderClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DesignPatterns.BehavioralDesign.Template.OrderClient" />
+    <configuration name="BackTrackingProblems" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.BackTracking.BackTrackingProblems" />
       <module name="DSLeetCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DesignPatterns.BehavioralDesign.Template.Processor.*" />
+          <option name="PATTERN" value="com.BackTracking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DocumentApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DesignPatterns.BehavioralDesign.State.States.DocumentApp" />
+      <module name="DSLeetCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DesignPatterns.BehavioralDesign.State.States.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LinkedListProblems" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.DataStructures.LinkedListProblems" />
+      <module name="DSLeetCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.DataStructures.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmartHomeApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DesignPatterns.BehavioralDesign.Command.SmartHomeApp" />
+      <module name="DSLeetCode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DesignPatterns.BehavioralDesign.Command.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,8 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
-        <item itemvalue="Application.OrderClient" />
+        <item itemvalue="Application.LinkedListProblems" />
+        <item itemvalue="Application.ArraysAndHashing" />
+        <item itemvalue="Application.BackTrackingProblems" />
+        <item itemvalue="Application.DocumentApp" />
+        <item itemvalue="Application.SmartHomeApp" />
       </list>
     </recent_temporary>
   </component>
@@ -133,14 +186,84 @@
       <option name="project" value="LOCAL" />
       <updated>1775395397134</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Design Pattern : Template &amp; Startegy">
+      <option name="closed" value="true" />
+      <created>1775406885135</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775406885135</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Design Pattern : Template &amp; Strategy">
+      <option name="closed" value="true" />
+      <created>1775407065733</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1775407065733</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Design Pattern : Iterator">
+      <option name="closed" value="true" />
+      <created>1775412857529</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1775412857530</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Design Pattern : Command and Observer">
+      <option name="closed" value="true" />
+      <created>1775492430274</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1775492430274</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Design Pattern : State">
+      <option name="closed" value="true" />
+      <created>1775667019876</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1775667019878</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Design Pattern : Adaptor, Decorator, Facade">
+      <option name="closed" value="true" />
+      <created>1775680249648</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1775680249648</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Deletion" />
     <MESSAGE value="JDK Change" />
-    <option name="LAST_COMMIT_MESSAGE" value="JDK Change" />
+    <MESSAGE value="Design Pattern : Template &amp; Startegy" />
+    <MESSAGE value="Design Pattern : Template &amp; Strategy" />
+    <MESSAGE value="Design Pattern : Iterator" />
+    <MESSAGE value="Design Pattern : Command and Observer" />
+    <MESSAGE value="Design Pattern : State" />
+    <MESSAGE value="Design Pattern : Adaptor, Decorator, Facade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Design Pattern : Adaptor, Decorator, Facade" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/DataStructures/Structures/ListNode.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/DataStructures/LinkedListProblems.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
