@@ -2,23 +2,17 @@ package com.DataStructures;
 
 import com.DataStructures.Structures.ListNode;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
 import static com.DataStructures.Structures.ListNode.showList;
 
 public class LinkedListProblems {
     public static void main(String... args) {
         //SwapNodesInPairs();
         //AddTwoNumbers();
-        RemoveNthNodeFromEndofList();
+        //RemoveNthNodeFromEndofList();
         //FirstCommonOfTwoLinkedLists();
         //IntersectionofTwoLinkedLists();
         //OddEvenLinkedList();
+        FindKthLastNode();
     }
 
     static void SwapNodesInPairs() {
@@ -68,7 +62,7 @@ public class LinkedListProblems {
     }
 
     static void RemoveNthNodeFromEndofList() {
-        ListNode head = ListNode.createListNodes(new int[]{1,2});
+        ListNode head = ListNode.createListNodes(new int[]{1, 2});
         int n = 0;
 
         //if (head.next == null) return null;
@@ -84,7 +78,7 @@ public class LinkedListProblems {
             slow = slow.next;
             fast = fast.next;
         }
-        if(slow.next != null) slow.next = slow.next.next;
+        if (slow.next != null) slow.next = slow.next.next;
         showList(head);
 
     }
@@ -158,5 +152,22 @@ public class LinkedListProblems {
             even = even.next;
         }
         odd.next = evenHead;
+    }
+
+    static void FindKthLastNode() {
+        ListNode head = ListNode.createListNodes(new int[]{1, 2, 3, 4, 5, 6});
+        int k = 3;
+
+        int i = 0;
+        ListNode ptr = head;
+        while(i < k){
+            ptr = ptr.next;
+            i++;
+        }
+        while(ptr != null){
+            ptr = ptr.next;
+            head = head.next;
+        }
+        System.out.println(head.val);
     }
 }

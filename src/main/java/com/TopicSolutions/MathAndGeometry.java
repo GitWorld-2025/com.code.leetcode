@@ -13,25 +13,55 @@ public class MathAndGeometry {
         //SpiralMatrix();
         //SetMatrixZeroes();
         //Pow_Of_x_n();
-        MultiplyStrings();
+        //MultiplyStrings();
+        DayoftheWeek();
     }
 
+    static void DayoftheWeek() {
+        int day = 31, month = 8, year = 2016;
+
+        List<String> days = Arrays.asList("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+        List<Integer> mDays = Arrays.asList(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+
+        int totalDays = 0;
+        for(int y = 1971; y < year; y++){
+            totalDays  += isLeapYear(y) ? 366 : 365;
+        }
+
+        for(int m = 1; m < month; m++){
+            if(m == 2 || isLeapYear(year)) {
+                totalDays+= 29;
+            }
+            else {
+                totalDays += mDays.get(m-1);
+            }
+        }
+
+        totalDays += day;
+        String d = days.get((totalDays + 3)%7);
+        System.out.println(d);
+    }
+
+    static boolean isLeapYear(int year){
+        return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+    }
     static void MultiplyStrings() {
         String num1 = "123", num2 = "456";
 
         char[] res = new char[num1.length() * 2];
-        Arrays.fill(res,'0');
+        Arrays.fill(res, '0');
         for (int i = num2.length() - 1; i >= 0; i--) {
             int carry = 0;
             int k = res.length - 1 - i;
             for (int j = num1.length() - 1; j >= 0; j--) {
                 int sum = (num1.charAt(j) - '0') * (num2.charAt(i) - '0');
-                res[k] = (char) (((int)res[k]+sum + carry) % 10);
-                carry = ((int)res[k]+sum + carry) / 10;
+                res[k] = (char) (((int) res[k] + sum + carry) % 10);
+                carry = ((int) res[k] + sum + carry) / 10;
                 k--;
             }
         }
-        for(char c : res) System.out.print(c);
+        for (char c : res) System.out.print(c);
     }
 
     static void Pow_Of_x_n() {
