@@ -11,7 +11,24 @@ public class SlidingWindow {
         //LongestRepeatingCharacterReplacementHalfApproach();
         //LongestRepeatingCharacterReplacementSWOptimal();
         //MaximumKWindowAverage();
-        ThreeSumClosest();
+        //ThreeSumClosest();
+    }
+
+    static void SubarrayProductLessThanK() {
+        int[] nums = {10, 5, 2, 6};
+        int k = 100;
+
+        int totalCount = 0;
+        int product = 1;
+
+        //if(k <= 1) return 0;
+
+        for (int left = 0, right = 0; right < nums.length; right++) {
+            product *= nums[right];
+
+            while (product >= k) product /= nums[left++];
+            totalCount += right - left + 1;
+        }
     }
 
     static void ThreeSumClosest() {
@@ -21,23 +38,21 @@ public class SlidingWindow {
 
         Arrays.sort(nums);
         int res = nums[0] + nums[1] + nums[2];
-        for(int i=0;i<n-2;i++)
-        {
-            int left = i+1,right = n-1;
-            while(left < right)
-            {
-                int sum = nums[i]+nums[left]+nums[right];
-                if(Math.abs(target-res)>Math.abs(target-sum))
+        for (int i = 0; i < n - 2; i++) {
+            int left = i + 1, right = n - 1;
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (Math.abs(target - res) > Math.abs(target - sum))
                     res = sum;
-                if(sum == target)
+                if (sum == target)
                     break;
-                if(sum > target)
+                if (sum > target)
                     right--;
                 else
                     left++;
             }
         }
-        System.out.println("Three Sum Closest : "+ res);
+        System.out.println("Three Sum Closest : " + res);
     }
 
     static void MaximumKWindowAverage() {

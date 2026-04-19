@@ -17,6 +17,7 @@ public class LeetCode_1P {
         //searchInRotatedArray();
         //circularMaxSumSubarray();
         //longestSubstringWithoutRepeatingCharacter();
+        //uniqueNumber();
         //uniqueNumber2();
         //rotateArraybyKelements();
         //IntersectionofwoArrays();
@@ -29,22 +30,25 @@ public class LeetCode_1P {
         //productExceptSelf();
         //seperateDistinctArray();
         //seperateDistinctArray2Pointers();
-        findListOfPalindrom();
+        //findListOfPalindrom();
+        //findMajorityElement();
+        findMajorityElement2();
     }
 
-    static void findListOfPalindrom(){
+    static void findListOfPalindrom() {
         String s = "okko";
         List<String> result = new ArrayList<>();
 
-        for(int i = 0; i < s.length();i++){
-            for(int j = i; j <= s.length();j++){
-                String sub = s.substring(i,j);
-                if(checkPalindrom(sub) && !sub.isEmpty()) result.add(s.substring(i,j));
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i; j <= s.length(); j++) {
+                String sub = s.substring(i, j);
+                if (checkPalindrom(sub) && !sub.isEmpty()) result.add(s.substring(i, j));
             }
         }
-        for(String s1 : result) System.out.println(s1);
+        for (String s1 : result) System.out.println(s1);
     }
-    static boolean checkPalindrom(String str){
+
+    static boolean checkPalindrom(String str) {
         return IntStream.range(0, str.length() / 2).noneMatch(i -> str.charAt(i) != str.charAt(str.length() - i - 1));
     }
 
@@ -258,6 +262,15 @@ public class LeetCode_1P {
         Arrays.sort(nums, k, nums.length);
 
         Arrays.stream(nums).forEach(System.out::println);
+    }
+
+    static void uniqueNumber() {
+        int[] nums = {1, 2, 3, 2, 1};
+        int number = nums[0];
+        for (int i = 1; i < nums.length; i++) number ^= nums[i];
+
+        System.out.println(number);
+
     }
 
     static void uniqueNumber2() {
@@ -564,7 +577,56 @@ public class LeetCode_1P {
         }
     }
 
-    static void findMajarityElement() {
+
+    public static List<Integer> findMajorityElement2() {
+        int[] nums = {3, 2, 3};
+        Integer majority1 = 0;
+        Integer majority2 = 0;
+        int count1 = 0;
+        int count2 = 0;
+
+        for (int num : nums) {
+            if (num == majority1) {
+                count1++;
+            } else if (num == majority2) {
+                count2++;
+            } else if (count1 == 0) {
+                majority1 = num;
+                count1++;
+            } else if (count2 == 0) {
+                majority2 = num;
+                count2++;
+            } else {
+                count1--;
+                count2--;
+            }
+        }
+
+        count1 = 0;
+        count2 = 0;
+
+        for (int num : nums) {
+            if (num == majority1) {
+                count1++;
+            } else if (num == majority2) {
+                count2++;
+            }
+        }
+
+        List<Integer> res = new ArrayList<>();
+        int n = nums.length;
+
+        if (count1 > n / 3) {
+            res.add(majority1);
+        }
+        if (count2 > n / 3) {
+            res.add(majority2);
+        }
+
+        return res;
+    }
+
+    static void findMajorityElement() {
         //Majority element is nums length n , element appears > n/2
         //simplest sort elements find mid n/2 element
         //Expected find votes of majority

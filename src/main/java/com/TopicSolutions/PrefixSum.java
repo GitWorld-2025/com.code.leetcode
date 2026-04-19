@@ -1,9 +1,6 @@
 package com.TopicSolutions;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PrefixSum {
     public static void main(String... args) {
@@ -12,7 +9,42 @@ public class PrefixSum {
         //SubarraySumEqualsK();
         //circularMaxSumSubarray();
         //SubarraySumsDivisiblebyK();
-        IndexedOfSubArraySum();
+        //IndexedOfSubArraySum();
+        //equilibriumIndex();
+        ValidSplitWithSum();
+    }
+
+    static void ValidSplitWithSum() {
+        /// Find count no. of valid split of Array where left subarray sum > right subarray sum
+        int[] nums = {10, 4, -8, 7, 3, 6};
+
+        int count = 0;
+        int totalSum = Arrays.stream(nums).sum();
+        int leftSum = 0;
+        for(int num : nums){
+            leftSum+=num;
+            int rightSum = totalSum - leftSum;
+            if(leftSum > rightSum) count++;
+        }
+        System.out.println("ValidSplitWithSum : " + (count-1));
+    }
+
+    static void equilibriumIndex() {
+        /// Find Pivot Index
+        int[] nums = {-1, -1, 0, 1, 1, 0};
+        //int[] nums = {1,7,3,6,5,6};
+        int totalSum = Arrays.stream(nums).sum();
+        int leftSum = 0;
+        int pivote = -1;
+        for (int i = 0; i < nums.length; i++) {
+            int rightSum = totalSum - leftSum - nums[i];
+            if (leftSum == rightSum) {
+                pivote = i;
+                break;
+            }
+            leftSum += nums[i];
+        }
+        System.out.println(pivote);
     }
 
     static void SubarraySumsDivisiblebyK() {
@@ -92,17 +124,16 @@ public class PrefixSum {
         List<List<Integer>> result = new ArrayList<>();
         int sum = 0, i = 0, j = 0;
         while (j < nums.length) {
-            if(sum == target) {
+            if (sum == target) {
                 List<Integer> list = new ArrayList<>();
-                list.add(i+1);
+                list.add(i + 1);
                 list.add(j);
                 result.add(list);
                 break;
-            }
-            else if(sum > target){
+            } else if (sum > target) {
                 sum -= nums[i];
                 i++;
-            }else {
+            } else {
                 sum += nums[j];
                 j++;
             }

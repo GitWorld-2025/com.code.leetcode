@@ -12,8 +12,32 @@ public class TwoPointers {
         //BoatstoSavePeople();
         //MaximumWidthRamp();
         RearrangeArrayElementsbySign();
+        SortColors();
     }
+    static void SortColors() {
+        int[] nums = {2,0,2,1,1,0};
+        int low = 0, mid = 0, high = nums.length - 1;
 
+        while (mid <= high) {
+            if(nums[mid]==0){
+                swap(nums,low,mid);
+                low++;mid++;
+            }
+            else if(nums[mid]==1){
+                mid++;
+            }
+            else{
+                swap(nums,mid,high);
+                high--;
+            }
+
+        }
+    }
+    static void swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] =  arr[b];
+        arr[b] = temp;
+    }
     static void RearrangeArrayElementsbySign() {
         int[] nums = {19, -26, -37, -10, -9, 15, 14, 31};
         int[] newNums = new int[nums.length];

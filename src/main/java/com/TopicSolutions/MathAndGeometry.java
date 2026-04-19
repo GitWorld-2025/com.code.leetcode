@@ -15,9 +15,28 @@ public class MathAndGeometry {
         //Pow_Of_x_n();
         //MultiplyStrings();
         DayoftheWeek();
+        PerfectSquaresLegendresTheorem(13);
+    }
+
+    static int PerfectSquaresLegendresTheorem(int n) {
+
+        int sqrtN = (int) Math.sqrt(n);
+        if (sqrtN * sqrtN == n) return 1;
+
+        for (int i = 1; i * i < n; i++) {
+            int square = i * i;
+            int base = (int) Math.sqrt(n - square);
+            if (base * base == n - square) return 2;
+        }
+
+        while (n % 4 == 0) n /= 4;
+
+        if(n % 8 != 7)  return 3;
+        return 4;
     }
 
     static void DayoftheWeek() {
+        /// PENDING
         int day = 31, month = 8, year = 2016;
 
         List<String> days = Arrays.asList("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
@@ -25,27 +44,27 @@ public class MathAndGeometry {
 
 
         int totalDays = 0;
-        for(int y = 1971; y < year; y++){
-            totalDays  += isLeapYear(y) ? 366 : 365;
+        for (int y = 1971; y < year; y++) {
+            totalDays += isLeapYear(y) ? 366 : 365;
         }
 
-        for(int m = 1; m < month; m++){
-            if(m == 2 || isLeapYear(year)) {
-                totalDays+= 29;
-            }
-            else {
-                totalDays += mDays.get(m-1);
+        for (int m = 1; m < month; m++) {
+            if (m == 2 || isLeapYear(year)) {
+                totalDays += 29;
+            } else {
+                totalDays += mDays.get(m - 1);
             }
         }
 
         totalDays += day;
-        String d = days.get((totalDays + 3)%7);
+        String d = days.get((totalDays + 3) % 7);
         System.out.println(d);
     }
 
-    static boolean isLeapYear(int year){
+    static boolean isLeapYear(int year) {
         return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
     }
+
     static void MultiplyStrings() {
         String num1 = "123", num2 = "456";
 

@@ -9,9 +9,35 @@ public class BackTracking {
         //CombinationSumCaller();
         //WordSearchCaller();
         //LetterCasePermutationCaller();
-
+        SubarrayProductLessThanKCaller();
     }
 
+    /// Subarray Product Less Than K
+
+    static void SubarrayProductLessThanKCaller() {
+        /// But not completely solved by Back tracking
+        int[] nums = {10, 5, 2, 6};
+        int k = 100;
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        SubarrayProductLessThanKBackTrack(nums,k,result,list,1,0);
+        result.forEach(System.out::println);
+    }
+
+    static void SubarrayProductLessThanKBackTrack(int[] nums, int k, List<List<Integer>> result, List<Integer> list, int currProduct, int index) {
+        if(index == nums.length)  return;
+        if(currProduct <= k) {
+            if(!result.contains(list))result.add(new ArrayList<>(list));
+        }
+        currProduct*= nums[index];
+        list.add(nums[index]);
+        SubarrayProductLessThanKBackTrack(nums,k,result,list,currProduct,index+1);
+        list.remove(list.size()-1);
+        currProduct/= nums[index];
+        SubarrayProductLessThanKBackTrack(nums,k,result,list,currProduct,index+1);
+    }
+
+    /// //
     static void LetterCasePermutationCaller() {
         String s = "a1b2";
         List<String> result = new ArrayList<>();

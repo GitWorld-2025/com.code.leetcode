@@ -22,16 +22,30 @@ public class ArraysAndHashing {
         //uglyNumber();
         //permutationStringusingHashMap();
         //AddtoArrayFormofInteger();
-        RemoveOutermostParentheses();
+        //RemoveOutermostParentheses();
+        //FindMissingNumber();
+        SplittheArray();
+    }
+
+    static void SplittheArray() {
+        /// array nums of even length. You have to split the array into two parts nums1 and nums2 such that:
+        /// nums1.length == nums2.length == nums.length / 2.
+        /// nums1 should contain distinct elements.
+        /// nums2 should also contain distinct elements.
+
+        int[] nums = {1,1,2,2,3,4};
+        Map<Integer, Long> collect = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        boolean b = collect.entrySet().stream().noneMatch(i -> i.getValue() > 2);
+        System.out.println(b);
     }
 
     static void RemoveOutermostParentheses() {
         String s = "(()())(())";
         StringBuilder sb = new StringBuilder();
         int open = 0;
-        for(char c : s.toCharArray()){
-            if(c == '(' && open++ > 0) sb.append(c);
-            if(c == ')' && open-- > 1) sb.append(c);
+        for (char c : s.toCharArray()) {
+            if (c == '(' && open++ > 0) sb.append(c);
+            if (c == ')' && open-- > 1) sb.append(c);
         }
         System.out.println(sb);
     }
@@ -103,6 +117,14 @@ public class ArraysAndHashing {
         System.out.println("Ugly Number : " + flag);
     }
 
+    static void FindMissingNumber() {
+        int[] nums = {1, 3, 5, 4};
+        int max = Arrays.stream(nums).max().getAsInt();
+        int sum = Arrays.stream(nums).sum();
+        int missing = (max * (max + 1) / 2) - sum;
+        System.out.println(missing);
+    }
+
     static void FirstMissingPositive() {
         /// USING Cycle Sort
         int[] nums = {1, 7, 8, 9, 11, 12};
@@ -122,26 +144,6 @@ public class ArraysAndHashing {
         }
         System.out.println("FirstMissingPositive : " + i);
 
-        /*int i = 0;
-        while (i < nums.length) {
-            int ci = nums[i] - 1;
-            if (nums[i] > 0 && nums[i] <= nums.length && nums[i] != nums[ci]) {
-                int temp = nums[i];
-                nums[i] = nums[ci];
-                nums[ci] = temp;
-            } else if (nums[i] > 0 && ci <= nums.length) {
-                nums[ci] = nums[i];
-                i++;
-            } else i++;
-        }
-        int result = 0;
-        for (int j = 0; j < nums.length; j++) {
-            if (j + 1 != nums[j]) {
-                result = j + 1;
-                break;
-            }
-        }
-        System.out.println(result);*/
     }
 
     static void CheckIfItIsaStraightLine() {
