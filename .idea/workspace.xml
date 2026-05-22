@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d7f1b4b-70dd-4c10-bd6b-510d44c5f922" name="Changes" comment="Design Pattern : Adaptor, Decorator, Facade">
+    <list default="true" id="1d7f1b4b-70dd-4c10-bd6b-510d44c5f922" name="Changes" comment="leetcode - 4">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/CodingBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/DynamicProgramming/DPProblems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/DynamicProgramming/DPProblems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/ArraysAndHashing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/ArraysAndHashing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/GreedyAlgo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/GreedyAlgo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/PrefixSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/PrefixSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/SlidingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TopicSolutions/SlidingWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +57,20 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.ArraysAndHashing.executor": "Run",
+    "Application.BackTracking.executor": "Run",
     "Application.BackTrackingProblems.executor": "Run",
     "Application.Client.executor": "Run",
+    "Application.CodingBlock.executor": "Run",
+    "Application.DPProblems.executor": "Run",
     "Application.DocumentApp.executor": "Run",
+    "Application.GreedyAlgo.executor": "Run",
+    "Application.LeetCode_1P.executor": "Run",
     "Application.LinkedListProblems.executor": "Run",
+    "Application.MathAndGeometry.executor": "Run",
     "Application.OrderClient.executor": "Run",
+    "Application.PrefixSum.executor": "Run",
     "Application.SmartHomeApp.executor": "Run",
+    "Application.interview.executor": "Run",
     "Maven.DSLeetCode [clean].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -78,7 +90,7 @@
       <recent name="C:\Users\nitin\Downloads\Study\GitRepo\com.code.leetcode" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LinkedListProblems">
+  <component name="RunManager" selected="Application.CodingBlock">
     <configuration name="ArraysAndHashing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.TopicSolutions.ArraysAndHashing" />
       <module name="DSLeetCode" />
@@ -92,12 +104,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BackTrackingProblems" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.BackTracking.BackTrackingProblems" />
+    <configuration name="CodingBlock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TopicSolutions.CodingBlock" />
       <module name="DSLeetCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.BackTracking.*" />
+          <option name="PATTERN" value="com.TopicSolutions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,12 +117,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DocumentApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DesignPatterns.BehavioralDesign.State.States.DocumentApp" />
+    <configuration name="GreedyAlgo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TopicSolutions.GreedyAlgo" />
       <module name="DSLeetCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DesignPatterns.BehavioralDesign.State.States.*" />
+          <option name="PATTERN" value="com.TopicSolutions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,12 +130,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LinkedListProblems" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.DataStructures.LinkedListProblems" />
+    <configuration name="PrefixSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TopicSolutions.PrefixSum" />
       <module name="DSLeetCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.DataStructures.*" />
+          <option name="PATTERN" value="com.TopicSolutions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -131,12 +143,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SmartHomeApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DesignPatterns.BehavioralDesign.Command.SmartHomeApp" />
+    <configuration name="interview" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.progpractice.interview" />
       <module name="DSLeetCode" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DesignPatterns.BehavioralDesign.Command.*" />
+          <option name="PATTERN" value="com.progpractice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LinkedListProblems" />
+        <item itemvalue="Application.CodingBlock" />
         <item itemvalue="Application.ArraysAndHashing" />
-        <item itemvalue="Application.BackTrackingProblems" />
-        <item itemvalue="Application.DocumentApp" />
-        <item itemvalue="Application.SmartHomeApp" />
+        <item itemvalue="Application.PrefixSum" />
+        <item itemvalue="Application.interview" />
+        <item itemvalue="Application.GreedyAlgo" />
       </list>
     </recent_temporary>
   </component>
@@ -234,8 +246,43 @@
       <option name="project" value="LOCAL" />
       <updated>1775680249648</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Design Pattern : leetcode - 1">
+      <option name="closed" value="true" />
+      <created>1776540957747</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1776540957747</updated>
+    </task>
+    <task id="LOCAL-00011" summary="leetcode - 3">
+      <option name="closed" value="true" />
+      <created>1776573840885</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1776573840886</updated>
+    </task>
+    <task id="LOCAL-00012" summary="leetcode - 4">
+      <option name="closed" value="true" />
+      <created>1776622408595</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1776622408595</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
@@ -247,7 +294,10 @@
     <MESSAGE value="Design Pattern : Command and Observer" />
     <MESSAGE value="Design Pattern : State" />
     <MESSAGE value="Design Pattern : Adaptor, Decorator, Facade" />
-    <option name="LAST_COMMIT_MESSAGE" value="Design Pattern : Adaptor, Decorator, Facade" />
+    <MESSAGE value="Design Pattern : leetcode - 1" />
+    <MESSAGE value="leetcode - 3" />
+    <MESSAGE value="leetcode - 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="leetcode - 4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -259,8 +309,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/DataStructures/LinkedListProblems.java</url>
-          <line>99</line>
+          <line>93</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/TopicSolutions/ArraysAndHashing.java</url>
+          <line>264</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

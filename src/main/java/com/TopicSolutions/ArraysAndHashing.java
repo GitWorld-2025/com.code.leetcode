@@ -24,7 +24,148 @@ public class ArraysAndHashing {
         //AddtoArrayFormofInteger();
         //RemoveOutermostParentheses();
         //FindMissingNumber();
-        SplittheArray();
+        //SplittheArray();
+        //MinimumIndexofaValidSplit();
+        //Findtheindexoffirst1inaninfinitesortedarrayof0sand1s();
+        //FindDuplicateFloyedTortoiseHareApproach();
+        FindCommonCharacters();
+    }
+
+    static void FindCommonCharacters() {
+        String[] words = {"bella", "label", "roller"};
+
+        Map<Character,Integer> map = new HashMap<>();
+        for(Character c : words[0].toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+
+        for(int i = 1; i < words.length; i++){
+            HashMap<Character, Integer> helper = new HashMap<>();
+            for(char ch : words[i].toCharArray()){
+                helper.put(ch, helper.getOrDefault(ch, 0) + 1);
+            }
+
+            HashMap<Character, Integer> newMap = new HashMap<>();
+            for(char ch : map.keySet()){
+                int count_in_map = map.get(ch);
+                int count_in_helper = helper.getOrDefault(ch, 0);
+
+                if(count_in_helper > 0){ // Add to map only if count is greater than Zero.
+                    newMap.put(ch, Math.min(count_in_map, count_in_helper));
+                }
+            }
+
+            map = newMap;
+        }
+
+        // Build result
+        List<String> result = new ArrayList<>();
+        for(char ch : map.keySet()){
+            int count = map.get(ch); // Take count, because we have to add this that number of time in the result array
+
+            for(int i = 0; i < count; i++){
+                result.add(String.valueOf(ch)); // Convert to String because we need to return List<String>.
+            }
+        }
+    }
+
+    static void FindDuplicateFloyedTortoiseHareApproach() {
+        int nums[] = {2, 6, 4, 1, 3, 1, 5};
+        int slow = nums[0], fast = nums[0];
+
+        /// find intersection
+
+        while (true) {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+            if (slow == fast) break;
+        }
+        System.out.println("InterSection at : " + slow);
+        slow = nums[0];
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+
+        System.out.println("Duplicate number : " + slow);
+    }
+
+    static void Findtheindexoffirst1inaninfinitesortedarrayof0sand1s() {
+        int[] arr = {0, 0, 1, 1, 1, 1};
+        int low = 0, high = 1;
+
+        while (Optional.ofNullable(arr[high]).isPresent() && arr[high] == 0) {
+            low = high;
+            high *= 2;
+        }
+
+        int mid = 0;
+
+        while (low <= high) {
+            mid = (low + high) / 2;
+            if (arr[mid] == 1 && (mid == 0 || arr[mid - 1] == 0)) break;
+            else if (arr[mid] == 1) high = mid - 1;
+            else low = mid + 1;
+        }
+        System.out.println(mid);
+
+    }
+
+    static List<String> summaryRanges() {
+        int[] nums = {0, 2, 3, 4, 6, 8, 9};
+        List<String> result = new ArrayList<>();
+        if (nums.length == 0) {
+            return result;
+        }
+
+        int i = 0;
+        while (i < nums.length) {
+            int start = nums[i];
+            int j = i;
+            // Expand the range as long as elements are consecutive
+            while (j + 1 < nums.length && nums[j + 1] == nums[j] + 1) {
+                j++;
+            }
+
+            // Format the range string
+            if (nums[j] == start) {
+                result.add(String.valueOf(start));
+            } else {
+                result.add(start + "->" + nums[j]);
+            }
+
+            // Move to the next potential start of a range
+            i = j + 1;
+        }
+        return result;
+    }
+
+    static int MinimumIndexofaValidSplit() {
+        List<Integer> nums = Arrays.asList(2, 1, 3, 1, 1, 1, 7, 1, 2, 1);
+        Map<Integer, Integer> firstMap = new HashMap<>();
+        Map<Integer, Integer> secondMap = new HashMap<>();
+        int n = nums.size();
+
+        // Add all elements of nums to secondMap
+        for (int num : nums) {
+            secondMap.put(num, secondMap.getOrDefault(num, 0) + 1);
+        }
+
+        for (int index = 0; index < n; index++) {
+            // Create split at current index
+            int num = nums.get(index);
+            secondMap.put(num, secondMap.get(num) - 1);
+            firstMap.put(num, firstMap.getOrDefault(num, 0) + 1);
+
+            // Check if valid split
+            if (firstMap.get(num) * 2 > index + 1 && secondMap.get(num) * 2 > n - index - 1) {
+                return index;
+            }
+        }
+
+        // No valid split exists
+        return -1;
+
     }
 
     static void SplittheArray() {
@@ -33,7 +174,7 @@ public class ArraysAndHashing {
         /// nums1 should contain distinct elements.
         /// nums2 should also contain distinct elements.
 
-        int[] nums = {1,1,2,2,3,4};
+        int[] nums = {1, 1, 2, 2, 3, 4};
         Map<Integer, Long> collect = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         boolean b = collect.entrySet().stream().noneMatch(i -> i.getValue() > 2);
         System.out.println(b);
@@ -126,7 +267,6 @@ public class ArraysAndHashing {
     }
 
     static void FirstMissingPositive() {
-        /// USING Cycle Sort
         int[] nums = {1, 7, 8, 9, 11, 12};
         int n = nums.length;
         boolean[] seen = new boolean[n + 1];

@@ -11,7 +11,39 @@ public class PrefixSum {
         //SubarraySumsDivisiblebyK();
         //IndexedOfSubArraySum();
         //equilibriumIndex();
-        ValidSplitWithSum();
+        //ValidSplitWithSum();
+        ProductsofArrayExceptSelf();
+    }
+
+    static void ProductsofArrayExceptSelf() {
+        int[] arr = { 2, 3, 4, 5, 6,7};
+        int n = arr.length;
+        int[] prefProduct = new int[n];
+        int[] suffProduct = new int[n];
+        int[] res = new int[n];
+        System.out.println(Arrays.stream(arr).reduce(1,(a,b)->a*b));
+        // Construct the prefProduct array
+        prefProduct[0] = 1;
+        for (int i = 1; i < n; i++)
+            prefProduct[i] = arr[i - 1] * prefProduct[i - 1];
+
+        for (int no : prefProduct) System.out.print(" | " + no + " | ");
+        System.out.println("----------------------------------");
+        // Construct the suffProduct array
+        suffProduct[n - 1] = 1;
+        for (int j = n - 2; j >= 0; j--)
+            suffProduct[j] = arr[j + 1] * suffProduct[j + 1];
+
+        for (int no : suffProduct) System.out.print(" | " + no + " | ");
+        System.out.println("----------------------------------");
+
+        // Construct the result array using
+        // prefProduct[] and suffProduct[]
+        for (int i = 0; i < n; i++)
+            res[i] = prefProduct[i] * suffProduct[i];
+
+        for (int no : res) System.out.print(" | " + no + " | ");
+        System.out.println("----------------------------------");
     }
 
     static void ValidSplitWithSum() {
@@ -21,12 +53,12 @@ public class PrefixSum {
         int count = 0;
         int totalSum = Arrays.stream(nums).sum();
         int leftSum = 0;
-        for(int num : nums){
-            leftSum+=num;
+        for (int num : nums) {
+            leftSum += num;
             int rightSum = totalSum - leftSum;
-            if(leftSum > rightSum) count++;
+            if (leftSum > rightSum) count++;
         }
-        System.out.println("ValidSplitWithSum : " + (count-1));
+        System.out.println("ValidSplitWithSum : " + (count - 1));
     }
 
     static void equilibriumIndex() {

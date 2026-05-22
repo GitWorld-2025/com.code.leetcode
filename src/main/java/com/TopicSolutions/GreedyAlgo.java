@@ -11,7 +11,7 @@ public class GreedyAlgo {
         //MaximumSubArray();
         //JumpGame();
         //BestTimetoBuyandSellStockUsingTwoPointersArray();
-        //BestTimetoBuyandSellStockWithTransactionFee();
+        BestTimetoBuyandSellStockWithTransactionFee();
         //minimumSize(null,4);//Minimum Limit of Balls in Bag
         //IncreasingTripletSubsequence();
         //canPlaceFlowers(int[] flowerbed, int n)
@@ -19,7 +19,7 @@ public class GreedyAlgo {
         //longestPalindrome();
         //GasStation();
         //ValidateStackSequences();
-        MinimumAddtoMakeParenthesesValid();
+        //MinimumAddtoMakeParenthesesValid();
     }
 
     static void MinimumAddtoMakeParenthesesValid() {
