@@ -17,7 +17,78 @@ public class CodingBlock {
         //gcdOfStrings();
         //InsertAtEndOfStackUsingRecursion();
         //findNthDigit();
-        countPrimesSeive();
+        //countPrimesSeive();
+        //FindPlayersWithZeroorOneLosses();
+        //FindtheTownJudge();
+        SetMismatch();
+    }
+
+    static void SetMismatch() {
+        int[] nums = {1, 2, 2, 4};
+        int n = nums.length;
+        int[] v = new int[n + 1];
+        int missing = 0, duplicate = 0;
+
+        for (int i = 0; i < n; i++) {
+            v[nums[i]]++;
+        }
+
+        for (int i = 1; i < v.length; i++) {
+            if (v[i] == 2) {
+                duplicate = i;
+            }
+            if (v[i] == 0) {
+                missing = i;
+            }
+        }
+        System.out.println("Double number : " + duplicate);
+        System.out.println("Missing number : " + missing);
+    }
+
+    static void FindtheTownJudge() {
+        int[][] trust = {{1, 3}, {2, 3}, {3, 1}};
+        int n = 3;
+
+        int judge = -1;
+
+        int[] inTrust = new int[n];
+        int[] outTrust = new int[n];
+
+        for (int[] t : trust) {
+            outTrust[t[0] - 1]++;
+            inTrust[t[1] - 1]++;
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (outTrust[i] == 0 && inTrust[i] == n - 1) {
+                judge = i + 1;
+            }
+        }
+
+        System.out.println("Judge Of Town : " + judge);
+    }
+
+    static void FindPlayersWithZeroorOneLosses() {
+        int[][] matches = {{1, 3}, {2, 3}, {3, 6}, {5, 6}, {5, 7}, {4, 5}, {4, 8}, {4, 9}, {10, 4}, {10, 9}};
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int[] match : matches) {
+            map.put(match[0], map.getOrDefault(match[0], 0));
+            map.put(match[1], map.getOrDefault(match[1], 0) + 1);
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> winners = new ArrayList<>();
+        List<Integer> loser1 = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> e : map.entrySet()) {
+            if (e.getValue() == 0) winners.add(e.getKey());
+            if (e.getValue() == 1) loser1.add(e.getKey());
+        }
+        winners.sort(Comparator.naturalOrder());
+        loser1.sort(Comparator.naturalOrder());
+        result.add(winners);
+        result.add(loser1);
+
+        System.out.println(result);
     }
 
     static void countPrimesSeive() {
@@ -28,7 +99,7 @@ public class CodingBlock {
         if (n >= 1) isPrime[1] = false;
 
         for (int i = 2; i * i <= n; i++) {
-            if(isPrime[i]){
+            if (isPrime[i]) {
                 for (int j = i * i; j <= n; j += i) {
                     isPrime[j] = false;
                 }

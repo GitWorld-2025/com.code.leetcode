@@ -27,8 +27,8 @@ public class ArraysAndHashing {
         //SplittheArray();
         //MinimumIndexofaValidSplit();
         //Findtheindexoffirst1inaninfinitesortedarrayof0sand1s();
-        //FindDuplicateFloyedTortoiseHareApproach();
-        FindCommonCharacters();
+        FindDuplicateFloyedTortoiseHareApproach();
+        //FindCommonCharacters();
     }
 
     static void FindCommonCharacters() {
@@ -90,7 +90,7 @@ public class ArraysAndHashing {
         System.out.println("Duplicate number : " + slow);
     }
 
-    static void Findtheindexoffirst1inaninfinitesortedarrayof0sand1s() {
+    static void FindTheIndexOfFirst1InAnInfiniteSortedArrayOf0sAnd1s() {
         int[] arr = {0, 0, 1, 1, 1, 1};
         int low = 0, high = 1;
 
