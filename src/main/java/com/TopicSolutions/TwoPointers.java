@@ -11,33 +11,59 @@ public class TwoPointers {
         //LongestSubstringWithoutRepeatingCharacters();
         //BoatstoSavePeople();
         //MaximumWidthRamp();
-        RearrangeArrayElementsbySign();
-        SortColors();
+        //RearrangeArrayElementsbySign();
+        //SortColors();
+        trapping_rain_water();
     }
+
+    static void trapping_rain_water() {
+        int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        int water = 0;
+        int left = 0;
+        int right = height.length-1;
+        int leftMax = height[left];
+        int rightMax = height[right];
+
+        while(left<right){
+            if(leftMax < rightMax){
+                left++;
+                leftMax = Math.max(leftMax,height[left]);
+                water += leftMax - height[left];
+            }else{
+                right--;
+                rightMax = Math.max(rightMax,height[right]);
+                water += rightMax - height[right];
+            }
+        }
+
+        System.out.println("Trapped Water : " + water);
+    }
+
     static void SortColors() {
-        int[] nums = {2,0,2,1,1,0};
+        int[] nums = {2, 0, 2, 1, 1, 0};
         int low = 0, mid = 0, high = nums.length - 1;
 
         while (mid <= high) {
-            if(nums[mid]==0){
-                swap(nums,low,mid);
-                low++;mid++;
-            }
-            else if(nums[mid]==1){
+            if (nums[mid] == 0) {
+                swap(nums, low, mid);
+                low++;
                 mid++;
-            }
-            else{
-                swap(nums,mid,high);
+            } else if (nums[mid] == 1) {
+                mid++;
+            } else {
+                swap(nums, mid, high);
                 high--;
             }
 
         }
     }
+
     static void swap(int[] arr, int a, int b) {
         int temp = arr[a];
-        arr[a] =  arr[b];
+        arr[a] = arr[b];
         arr[b] = temp;
     }
+
     static void RearrangeArrayElementsbySign() {
         int[] nums = {19, -26, -37, -10, -9, 15, 14, 31};
         int[] newNums = new int[nums.length];

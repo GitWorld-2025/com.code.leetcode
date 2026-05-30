@@ -1,4 +1,4 @@
-package com.Blind75;
+package com.Blind75.LRUCache;
 
 import java.util.*;
 

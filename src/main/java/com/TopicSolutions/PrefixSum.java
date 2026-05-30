@@ -9,10 +9,10 @@ public class PrefixSum {
         //SubarraySumEqualsK();
         //circularMaxSumSubarray();
         //SubarraySumsDivisiblebyK();
-        //IndexedOfSubArraySum();
+        IndexedOfSubArraySum();
         //equilibriumIndex();
         //ValidSplitWithSum();
-        ProductsofArrayExceptSelf();
+        //ProductsofArrayExceptSelf();
     }
 
     static void ProductsofArrayExceptSelf() {
@@ -94,7 +94,7 @@ public class PrefixSum {
             if (remainder < 0) remainder += k;
 
             result += prefixMap.getOrDefault(remainder, 0);
-            prefixMap.put(remainder, prefixMap.getOrDefault(remainder, 0) + 1);
+            prefixMap.put(remainder, prefixMap.getOrDefault(remainder, 0) + 1); 
         }
         System.out.println("SubarraySumsDivisiblebyK OptimalHashMap : " + result);
 

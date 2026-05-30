@@ -3,6 +3,7 @@ package com.TopicSolutions;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class ArraysAndHashing {
@@ -27,30 +28,71 @@ public class ArraysAndHashing {
         //SplittheArray();
         //MinimumIndexofaValidSplit();
         //Findtheindexoffirst1inaninfinitesortedarrayof0sand1s();
-        FindDuplicateFloyedTortoiseHareApproach();
+        //FindDuplicateFloyedTortoiseHareApproach();
         //FindCommonCharacters();
+        //PalindromicSubstringsSolution1();
+        countSubstrings("");
+    }
+
+    public static int countSubstrings(String s) {
+        int n = s.length();
+        int[][] memo = new int[n][n];
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            memo[i][i] = 1;
+            res++;
+        }
+        for (int i = 0; i < n - 1; i++) {
+            if (s.charAt(i) == s.charAt(i + 1)) {
+                memo[i][i + 1] = 1;
+                res++;
+            }
+        }
+
+        for (int i = 2; i < n; i++) {
+            for (int j = 0; j < n - i; j++) {
+                if (s.charAt(i + j) == s.charAt(j) && memo[j + 1][i + j - 1] == 1) {
+                    memo[j][i + j] = 1;
+                    res++;
+                }
+            }
+        }
+        return res;
+    }
+
+    static void PalindromicSubstringsSolution1() {
+        String s = "abc";
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i + 1; j <= s.length(); j++) {
+                String str = s.substring(i, j);
+                boolean flag = IntStream.range(0, str.length() / 2).noneMatch(k -> str.charAt(k) != str.charAt(str.length() - 1 - k));
+                if (flag) count++;
+            }
+        }
+        System.out.println("Number of Palindrom Substring : " + count);
     }
 
     static void FindCommonCharacters() {
         String[] words = {"bella", "label", "roller"};
 
-        Map<Character,Integer> map = new HashMap<>();
-        for(Character c : words[0].toCharArray()){
-            map.put(c,map.getOrDefault(c,0)+1);
+        Map<Character, Integer> map = new HashMap<>();
+        for (Character c : words[0].toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
 
-        for(int i = 1; i < words.length; i++){
+        for (int i = 1; i < words.length; i++) {
             HashMap<Character, Integer> helper = new HashMap<>();
-            for(char ch : words[i].toCharArray()){
+            for (char ch : words[i].toCharArray()) {
                 helper.put(ch, helper.getOrDefault(ch, 0) + 1);
             }
 
             HashMap<Character, Integer> newMap = new HashMap<>();
-            for(char ch : map.keySet()){
+            for (char ch : map.keySet()) {
                 int count_in_map = map.get(ch);
                 int count_in_helper = helper.getOrDefault(ch, 0);
 
-                if(count_in_helper > 0){ // Add to map only if count is greater than Zero.
+                if (count_in_helper > 0) { // Add to map only if count is greater than Zero.
                     newMap.put(ch, Math.min(count_in_map, count_in_helper));
                 }
             }
@@ -60,10 +102,10 @@ public class ArraysAndHashing {
 
         // Build result
         List<String> result = new ArrayList<>();
-        for(char ch : map.keySet()){
+        for (char ch : map.keySet()) {
             int count = map.get(ch); // Take count, because we have to add this that number of time in the result array
 
-            for(int i = 0; i < count; i++){
+            for (int i = 0; i < count; i++) {
                 result.add(String.valueOf(ch)); // Convert to String because we need to return List<String>.
             }
         }
