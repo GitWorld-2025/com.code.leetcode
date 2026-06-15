@@ -14,8 +14,71 @@ public class MathAndGeometry {
         //SetMatrixZeroes();
         //Pow_Of_x_n();
         //MultiplyStrings();
-        DayoftheWeek();
-        PerfectSquaresLegendresTheorem(13);
+        //DayoftheWeek();
+        //PerfectSquaresLegendresTheorem(13);
+        //FactorialTrailingZeroes();
+        //VowelsofAllSubstrings();
+        //NumberofStepstoReduceaNumbertoZero();
+    }
+
+    static void BaseballGame() {
+        String[] operations = {"5", "2", "C", "D", "+"};
+        List<String> list = new ArrayList<>();
+
+        for (String s : operations) {
+            if (s.equals("+")) {
+                int newScore = Integer.valueOf(list.get(list.size() - 1)) + Integer.valueOf(list.get(list.size() - 2));
+                list.add(String.valueOf(newScore));
+            } else if (s.equals("D")) {
+                list.add(String.valueOf((2 * Integer.valueOf(list.get(list.size() - 1)))));
+            } else if (s.equals("C")) {
+                list.remove(list.size() - 1);
+            } else list.add(s);
+        }
+        int total = 0;
+        for (String s : list) {
+            total += Integer.valueOf(s);
+        }
+    }
+
+    static void NumberofStepstoReduceaNumbertoZero() {
+        int num = 14;
+        int steps = 0;
+        while (num != 0) {
+            if (num % 2 != 0) num -= 1;
+            else num /= 2;
+            steps++;
+        }
+        System.out.println("Number of Steps to Reduce a Number to Zero : " + steps);
+    }
+
+    static void VowelsofAllSubstrings() {
+        String word = "aba";
+        int res = 0, prev = 0;
+
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                prev += i + 1;
+            }
+            res += prev;
+        }
+
+        System.out.println("Vowels of All Substrings : " + res);
+    }
+
+    static void FactorialTrailingZeroes() {
+        int n = 30;
+
+        int count = 0;
+        for (int i = 5; i <= n; i += 5) {
+            int current = i;
+            while (current % 5 == 0) {
+                count++;
+                current /= 5;
+            }
+        }
+        System.out.println(count);
     }
 
     static int PerfectSquaresLegendresTheorem(int n) {
@@ -31,7 +94,7 @@ public class MathAndGeometry {
 
         while (n % 4 == 0) n /= 4;
 
-        if(n % 8 != 7)  return 3;
+        if (n % 8 != 7) return 3;
         return 4;
     }
 

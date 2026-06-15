@@ -1,18 +1,57 @@
 package com.TopicSolutions;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 
 public class SlidingWindow {
     public static void main(String... args) {
         //PermutationinString();
-        PermutationinStringSW("abc", "lecabee");
+        //PermutationinStringSW("abc", "lecabee");
         //BestTimetoBuyandSellStock();
         //LongestSubstringWithoutRepeatingCharacters();
         //LongestRepeatingCharacterReplacementHalfApproach();
         //LongestRepeatingCharacterReplacementSWOptimal();
         //MaximumKWindowAverage();
         //ThreeSumClosest();
+        slidingWindowMaxSumoFk();
+        findLHS();
+    }
+
+    public static int findLHS() {
+        int[] nums = new int[]{1, 3, 2, 2, 5, 2, 3, 7};
+        AtomicInteger maxLen = new AtomicInteger();
+        Map<Integer, Long> collect = Arrays.stream(nums).mapToObj(Integer::valueOf)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(collect);
+        collect.entrySet().stream().map(entry -> {
+            int key = entry.getKey();
+            if (collect.containsKey(key + 1)) {
+                long len = entry.getValue() + collect.get(key + 1);
+                maxLen.set(Math.max(maxLen.get(), (int) len));
+            }
+            return null;
+
+        });
+        return maxLen.get();
+    }
+
+    static void slidingWindowMaxSumoFk() {
+        int[] arr = {1, 4, 2, 10, 23, 3, 1, 0, 20};
+        int k = 4;
+        int n = arr.length;
+        int maxSum = 0;
+        for (int i = 0; i < k; i++) {
+            maxSum += arr[i];
+        }
+        int windowSum = maxSum;
+        for (int j = k; j < n - k; j++) {
+            windowSum = windowSum + arr[j] - arr[j - k];
+            maxSum = Math.max(maxSum, windowSum);
+        }
+        System.out.println("Maximum sum of " + k + " consecutive elements is: " + maxSum);
     }
 
     static boolean PermutationinStringSW(String s1, String s2) {
@@ -39,23 +78,6 @@ public class SlidingWindow {
                 return false;
         }
         return true;
-    }
-
-    static void SubarrayProductLessThanK() {
-        int[] nums = {10, 5, 2, 6};
-        int k = 100;
-
-        int totalCount = 0;
-        int product = 1;
-
-        //if(k <= 1) return 0;
-
-        for (int left = 0, right = 0; right < nums.length; right++) {
-            product *= nums[right];
-
-            while (product >= k) product /= nums[left++];
-            totalCount += right - left + 1;
-        }
     }
 
     static void ThreeSumClosest() {

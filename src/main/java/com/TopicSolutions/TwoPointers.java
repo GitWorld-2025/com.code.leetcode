@@ -13,7 +13,28 @@ public class TwoPointers {
         //MaximumWidthRamp();
         //RearrangeArrayElementsbySign();
         //SortColors();
-        trapping_rain_water();
+        //trapping_rain_water();
+        RotateArray();
+    }
+
+    static void RotateArray() {
+        int[] nums = {1,2,3,4,5,6,7};
+        int k = 3;
+        reverseArray(nums,0,nums.length);
+        reverseArray(nums,0,3);
+        reverseArray(nums,3,nums.length);
+
+        for(int n : nums) System.out.println(n);
+    }
+
+    static void reverseArray(int[] nums, int start, int end){
+        while(start < end){
+            int temp = nums[start];
+            nums[start] = nums[end - 1];
+            nums[end - 1] = temp;
+            start++;
+            end--;
+        }
     }
 
     static void trapping_rain_water() {

@@ -31,7 +31,26 @@ public class ArraysAndHashing {
         //FindDuplicateFloyedTortoiseHareApproach();
         //FindCommonCharacters();
         //PalindromicSubstringsSolution1();
-        countSubstrings("");
+        //countSubstrings("");
+        FirstUniqueCharacterInString();
+    }
+
+    static void FirstUniqueCharacterInString() {
+        String s = "loveleetcode";
+        int[] count = new int[26 + 1];
+        Arrays.fill(count, 0);
+        for (char c : s.toCharArray()) {
+            count['z' - c]++;
+        }
+        int index = -1;
+        for (int i = 0; i < s.length(); i++) {
+            if (count['z' - s.charAt(i)] == 1) {
+                index = i;
+                break;
+            }
+        }
+
+        System.out.println("First Unique Character in a String : " + index);
     }
 
     public static int countSubstrings(String s) {

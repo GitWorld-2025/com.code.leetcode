@@ -9,19 +9,43 @@ public class PrefixSum {
         //SubarraySumEqualsK();
         //circularMaxSumSubarray();
         //SubarraySumsDivisiblebyK();
-        IndexedOfSubArraySum();
+        //IndexedOfSubArraySum();
         //equilibriumIndex();
         //ValidSplitWithSum();
         //ProductsofArrayExceptSelf();
+        //SubarrayProductLessThanK();
+        //ContinuousSubarraySum();
+    }
+
+    public static boolean ContinuousSubarraySum(int[] nums, int k) {
+        int prefixMod = 0;
+        HashMap<Integer, Integer> modSeen = new HashMap<>();
+        modSeen.put(0, -1);
+
+        for (int i = 0; i < nums.length; i++) {
+            prefixMod = (prefixMod + nums[i]) % k;
+
+            if (modSeen.containsKey(prefixMod)) {
+                // ensures that the size of subarray is at least 2
+                if (i - modSeen.get(prefixMod) > 1) {
+                    return true;
+                }
+            } else {
+                // mark the value of prefixMod with the current index.
+                modSeen.put(prefixMod, i);
+            }
+        }
+
+        return false;
     }
 
     static void ProductsofArrayExceptSelf() {
-        int[] arr = { 2, 3, 4, 5, 6,7};
+        int[] arr = {2, 3, 4, 5, 6, 7};
         int n = arr.length;
         int[] prefProduct = new int[n];
         int[] suffProduct = new int[n];
         int[] res = new int[n];
-        System.out.println(Arrays.stream(arr).reduce(1,(a,b)->a*b));
+        System.out.println(Arrays.stream(arr).reduce(1, (a, b) -> a * b));
         // Construct the prefProduct array
         prefProduct[0] = 1;
         for (int i = 1; i < n; i++)
@@ -79,6 +103,24 @@ public class PrefixSum {
         System.out.println(pivote);
     }
 
+    static void SubarrayProductLessThanK() {
+        int[] nums = {10, 5, 2, 6};
+        int k = 100;
+
+        int totalCount = 0;
+        int product = 1;
+
+        //if(k <= 1) return 0;
+
+        for (int left = 0, right = 0; right < nums.length; right++) {
+            product *= nums[right];
+
+            while (product >= k) product /= nums[left++];
+            totalCount += right - left + 1;
+        }
+        System.out.println("Subarray Product Less Than K : " + totalCount);
+    }
+
     static void SubarraySumsDivisiblebyK() {
         int[] nums = {4, 5, 0, -2, -3, 1};
         int k = 5;
@@ -94,7 +136,7 @@ public class PrefixSum {
             if (remainder < 0) remainder += k;
 
             result += prefixMap.getOrDefault(remainder, 0);
-            prefixMap.put(remainder, prefixMap.getOrDefault(remainder, 0) + 1); 
+            prefixMap.put(remainder, prefixMap.getOrDefault(remainder, 0) + 1);
         }
         System.out.println("SubarraySumsDivisiblebyK OptimalHashMap : " + result);
 
@@ -108,6 +150,23 @@ public class PrefixSum {
             }
         }
         System.out.println("SubarraySumsDivisiblebyK BruteForce : " + count);
+    }
+
+    static void SubarraySumEqualsK() {
+        int[] nums = {1, 2, 3, -3, 1, 1, 1, 4, 2, -3};
+        int k = 3;
+
+        int count = 0, currSum = 0;
+        Map<Integer, Integer> prefixSum = new HashMap<>();
+        prefixSum.put(0, 1);
+
+        for (int num : nums) {
+            currSum += num;
+            int diff = currSum - k;
+            count += prefixSum.getOrDefault(diff, 0);
+            prefixSum.put(currSum, prefixSum.getOrDefault(currSum, 0) + 1);
+        }
+        System.out.println("No of SubArray with sum k : " + count);
     }
 
     static void circularMaxSumSubarray() {
@@ -132,22 +191,6 @@ public class PrefixSum {
         System.out.println("circularMaxSumSubarray : " + totalSum);
     }
 
-    static void SubarraySumEqualsK() {
-        int[] nums = {1, 2, 3, -3, 1, 1, 1, 4, 2, -3};
-        int k = 3;
-
-        int count = 0, currSum = 0;
-        Map<Integer, Integer> prefixSum = new HashMap<>();
-        prefixSum.put(0, 1);
-
-        for (int num : nums) {
-            currSum += num;
-            int diff = currSum - k;
-            count += prefixSum.getOrDefault(diff, 0);
-            prefixSum.put(currSum, prefixSum.getOrDefault(currSum, 0) + 1);
-        }
-        System.out.println("No of SubArray with sum k : " + count);
-    }
 
     static void IndexedOfSubArraySum() {
         int[] nums = {1, 2, 3, 7, 5};
