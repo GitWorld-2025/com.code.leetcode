@@ -36,20 +36,29 @@ public class JavaStreamCode {
         //findDuplicateElementsFromArray();
         //fibonacciSeries();
         //printReleaseSummary();
-        permutationStringUsingStreams();
+        //permutationStringUsingStreams();
+        ReverseWordsinaStringIII();
+    }
+
+    static void ReverseWordsinaStringIII() {
+        String s = "Let's take LeetCode contest";
+        String result = Arrays.stream(s.split(" ")).map(str->new StringBuilder(str).reverse())
+                .collect(Collectors.joining(" "));
+        System.out.println(result);
     }
 
     static void permutationStringUsingStreams() {
         String s1 = "adc";
         String s2 = "dcda";
         boolean flag = false;
-        for(int i = 0 ; i < s2.length() - s1.length()+1;i++){
-            flag = Arrays.stream(s2.substring(0+i, s1.length()+i).split("")).sorted().collect(Collectors.joining())
+        for (int i = 0; i < s2.length() - s1.length() + 1; i++) {
+            flag = Arrays.stream(s2.substring(0 + i, s1.length() + i).split("")).sorted().collect(Collectors.joining())
                     .contains(Arrays.stream(s1.split("")).sorted().collect(Collectors.joining()));
-            if(flag) break;
+            if (flag) break;
         }
         System.out.println(flag);
     }
+
     static void printReleaseSummary() {
         List<List<String>> data = new ArrayList<>();
         data.add(new ArrayList<>() {{
